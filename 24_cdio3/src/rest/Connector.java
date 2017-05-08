@@ -18,7 +18,7 @@ import entity.UserDTO;
 public class Connector {
 
 
-
+	String lol = "Total lol!";
 
 	UserStore us = new UserStore();
 

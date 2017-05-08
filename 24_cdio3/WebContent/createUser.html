@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<link rel="stylesheet" type="text/css" href="createUser.css" />
+<script src="createUser.js"></script>
+<meta charset="UTF-8">
+</head>
+
+<body>
+	<form method="post" id="CUForm">
+
+			<ol>
+			<li><label>Name: <input type="text" id="userName" name="userName" class="formInput"></label></li>
+			<li><label>Initials: <input type="text" id="ini" name="ini" class="formInput"></label></li>
+			<li><label> CPR: <input type="text" id="cpr" name="cpr" class="formInput"></label></li>
+
+			<li>
+			<fieldset id="CUFieldset">
+				<label>Roles: </label>
+                            <p> Admin
+                        <input class="cb" name="roles" type= "checkbox" id= "Admin" value="Admin">
+                            </p>
+                            
+                            <p> Operator
+                        <input class="cb" name="roles" type= "checkbox" id= "Operator" value="Operator">
+                            </p>
+                            
+                            <p> Foreman
+                        <input class="cb" name="roles" type= "checkbox" id= "Foreman" value="Foreman">
+                            </p>
+                            
+                            <p> Pharmacist
+                        <input class="cb" name="roles" type= "checkbox" id= "Pharmacist" value="Pharmacist">
+                            </p>
+				
+			</fieldset>
+			</li>
+
+			<li><input type="submit" value="Create user" id="CUButton"></li>
+			</ol>
+
+	</form>
+</body>
+</html>

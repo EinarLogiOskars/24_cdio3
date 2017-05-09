@@ -1,5 +1,6 @@
 package dbImplementations;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -53,8 +54,21 @@ public class UserDAO implements IUserDAO{
 		// TODO Auto-generated method stub
 		
 	}
-
 	
-
+	@Override
+	public ArrayList<Integer> getUserIds() throws DALException {
+		ArrayList<Integer> userIds = new ArrayList<Integer>();
+		
+		ResultSet rs = MySQLAccess.doQuery("SELECT userID FROM users");
+		
+		try {
+			while(rs.next()){
+				userIds.add(rs.getInt("userID"));
+			}
+		} catch (SQLException e) { e.printStackTrace(); }
+		
+		return userIds;
+	}
+	
 
 }

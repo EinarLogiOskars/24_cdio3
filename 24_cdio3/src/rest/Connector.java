@@ -33,8 +33,19 @@ public class Connector {
 		}
 		return true;
 	}
-	
 
+	
+	@GET
+	@Path("/userids")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<Integer> getTakenIds() {
+		ArrayList<Integer> userIds = new ArrayList<Integer>();
+		try {
+			userIds = us.getUserIds();
+		} catch (DALException e) { e.printStackTrace(); }
+		return userIds;
+	}
+	
 
 //	@GET
 //	@Path("/showusers")

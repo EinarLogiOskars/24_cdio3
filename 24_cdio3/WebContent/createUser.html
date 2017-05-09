@@ -1,43 +1,40 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
+<!-- 
 <link rel="stylesheet" type="text/css" href="createUser.css" />
+-->
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript" src="jquery.serialize-object.min.js"></script>
 <script src="createUser.js"></script>
 <meta charset="UTF-8">
 </head>
 
 <body>
-	<form method="post" id="CUForm">
+	<form id="CUForm">
 
-			<ol>
-			<li><label>Name: <input type="text" id="userName" name="userName" class="formInput"></label></li>
-			<li><label>Initials: <input type="text" id="ini" name="ini" class="formInput"></label></li>
-			<li><label> CPR: <input type="text" id="cpr" name="cpr" class="formInput"></label></li>
+			<label>UserID: <input type="number" name="userId"></label>
+			<label>Username: <input type="text" name="userName"></label>
+			<label>Initials: <input type="text" name="ini"></label>
+			<label>CPR nr: <input type="text" name="cpr"></label>
+			<label>Admin: <input type="checkbox" name="roles[]" value="Admin"></label>
+			<label>Operator: <input type="checkbox" name="roles[]" value="Operator"></label>
+			<label>Foreman: <input type="checkbox" name="roles[]" value="Foreman"></label>
+			<label>Pharmacist: <input type="checkbox" name="roles[]" value="Pharmacist"></label>
+			
+			
+			<!-- <input type="text" id="userName" name="userName" class="formInput" placeholder="Username">
+			<input type="text" id="ini" name="ini" class="formInput" placeholder="Initials">
+			<input type="text" id="password" name="password" class="formInput" placeholder="Password">
+			<input type="text" id="cpr" name="cpr" class="formInput" placeholder="CPR number">
+            <input type="text" id= "Admin" name="roles[]" class="formInput" placeholder="Admin">
+            <input type="text" id= "Operator" name="roles[]" class="formInput" placeholder="Operator">  
+            <input type="text" id= "Foreman" name="roles[]" class="formInput" placeholder="Foreman">
+            <input type="text" id= "Pharmacist" name="roles[]" class="formInput" placeholder="Pharmacist"> -->
+                           
 
-			<li>
-			<fieldset id="CUFieldset">
-				<label>Roles: </label>
-                            <p> Admin
-                        <input class="cb" name="roles" type= "checkbox" id= "Admin" value="Admin">
-                            </p>
-                            
-                            <p> Operator
-                        <input class="cb" name="roles" type= "checkbox" id= "Operator" value="Operator">
-                            </p>
-                            
-                            <p> Foreman
-                        <input class="cb" name="roles" type= "checkbox" id= "Foreman" value="Foreman">
-                            </p>
-                            
-                            <p> Pharmacist
-                        <input class="cb" name="roles" type= "checkbox" id= "Pharmacist" value="Pharmacist">
-                            </p>
-				
-			</fieldset>
-			</li>
-
-			<li><input type="submit" value="Create user" id="CUButton"></li>
-			</ol>
+			<input type="submit" value="Create user" id="CUButton">
+			
 
 	</form>
 </body>

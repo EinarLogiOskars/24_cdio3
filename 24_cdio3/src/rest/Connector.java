@@ -9,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import controller.IUserDAO;
 import controller.IUserDAO.DALException;
 import controller.UserStore;
 import entity.UserDTO;
@@ -18,29 +19,30 @@ import entity.UserDTO;
 public class Connector {
 
 
-	String lol = "Total lol!";
-
-	UserStore us = new UserStore();
+	private IUserDAO us = new UserStore();
 
 	@POST
 	@Path("/createuser")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public boolean newUser(UserDTO user) {
-
-		System.out.println(user);
-
+	public boolean newUser(UserDTO user){
+		
+		try {
+			us.createUser(user);
+		} catch (DALException e) {
+			System.out.println(e.getMessage());
+		}
 		return true;
 	}
 
 
-	@GET
-	@Path("/showusers")
-	@Produces (MediaType.APPLICATION_JSON)
-	public ArrayList<UserDTO> showUsers() {
-		ArrayList<UserDTO> list = new ArrayList<UserDTO>();
-		try {list = us.getUserList(); } 
-		catch (DALException e) {e.printStackTrace(); }
-		return list;
-	}
+//	@GET
+//	@Path("/showusers")
+//	@Produces (MediaType.APPLICATION_JSON)
+//	public ArrayList<UserDTO> showUsers() {
+//		ArrayList<UserDTO> list = new ArrayList<UserDTO>();
+//		try {list = us.getUserList(); } 
+//		catch (DALException e) {e.printStackTrace(); }
+//		return list;
+//	}
 
 }

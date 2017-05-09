@@ -33,9 +33,9 @@ public class UserStore implements IUserDAO{
 	public void createUser(UserDTO user) throws DALException {
 		user.setPassword(pg.createPassword());
 		userList.add(user);
+		//sql.writeUser(user.toString(), user.getUserId());
 		System.out.println(user.toString());
 		System.out.println(userList.toString());
-		
 	}
 
 	@Override

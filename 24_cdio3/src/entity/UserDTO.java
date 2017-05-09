@@ -1,15 +1,11 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 
-@XmlRootElement
 public class UserDTO implements Serializable{
 
 	private static final long serialVersionUID = 4545864587995944260L;
@@ -19,8 +15,6 @@ public class UserDTO implements Serializable{
 	private String password;
 	private String cpr;
 	private List<String> roles;
-	private String roles1;
-	//TODO Add relevant fields
 
 	public UserDTO() {
 		
@@ -83,13 +77,6 @@ public class UserDTO implements Serializable{
 		roles.remove(role);
 	}
 	
-	public void setRoles1(String roles) {
-		this.roles1 = roles;
-	}
-	
-	public String getRoles1(){
-		return this.roles1;
-	}
 
 	//	@Override
 	//	public String toString() {

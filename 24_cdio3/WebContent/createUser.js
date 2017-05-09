@@ -40,16 +40,40 @@ $(document).ready(function() {
 		
 	});
 	
-	 $('input[type="text"]').keyup(function(){
-		  var value = $(this).val();
+	//Invalid input - mark with red border around input userName field...
+	 $("#userName").keyup(function(){
+		 var value = $(this).val();
 		  if(value.length >= 20) {
-		    $(this).attr('class', 'w3-border w3-border-red w3-input');
-		  }
-		  else {
-		   $(this).attr('class', 'w3-input');
-		  }
+			    $(this).attr('class', 'w3-border w3-border-red w3-input');
+			  }
+			  else {
+			   $(this).attr('class', 'w3-input');
+			  }
 	});
 	 
+	//Invalid input - mark with red border around input ini field...
+	 $("#ini").keyup(function(){
+		 var value = $(this).val();
+		  if(value.length >= 4) {
+			    $(this).attr('class', 'w3-border w3-border-red w3-input');
+			  }
+			  else {
+			   $(this).attr('class', 'w3-input');
+			  }
+	});
+	 
+	//Invalid input - mark with red border around input cpr field...
+	 $("#cpr").keyup(function(){
+		 var value = $(this).val();
+		  if(value.length >= 12) {
+			    $(this).attr('class', 'w3-border w3-border-red w3-input');
+			  }
+			  else {
+			   $(this).attr('class', 'w3-input');
+			  }
+	});
+	 
+	//Invalid input - mark with red border around ID input field...
 	 $('input[type="number"]').keyup(function(){
 		  var value = $(this).val();
 		  if(value < 11 || value > 89) {

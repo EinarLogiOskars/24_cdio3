@@ -1,4 +1,4 @@
-package controller;
+package dbImplementations;
 import java.util.List;
 
 import entity.UserDTO;
@@ -25,6 +25,10 @@ public interface IUserDAO {
 
 		public DALException(String msg) {
 			super(msg);
+		}
+		
+		public DALException(Throwable e) {
+			super(e);
 		}
 
 	}

@@ -9,9 +9,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import controller.IUserDAO;
-import controller.IUserDAO.DALException;
-import controller.UserStore;
+import dbImplementations.IUserDAO;
+import dbImplementations.UserDAO;
+import dbImplementations.IUserDAO.DALException;
 import entity.UserDTO;
 
 
@@ -19,7 +19,7 @@ import entity.UserDTO;
 public class Connector {
 
 
-	private IUserDAO us = new UserStore();
+	private IUserDAO us = new UserDAO();
 
 	@POST
 	@Path("/createuser")
@@ -33,6 +33,7 @@ public class Connector {
 		}
 		return true;
 	}
+	
 
 
 //	@GET

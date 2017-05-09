@@ -48,7 +48,17 @@ $(document).ready(function() {
 		  else {
 		   $(this).attr('class', 'w3-input');
 		  }
-		 });
+	});
+	 
+	 $('input[type="number"]').keyup(function(){
+		  var value = $(this).val();
+		  if(value < 11 || value > 89) {
+		    $(this).attr('class', 'w3-border w3-border-red w3-input');
+		  }
+		  else {
+		   $(this).attr('class', 'w3-input');
+		  }
+	});
 
 	
 });

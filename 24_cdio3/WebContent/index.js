@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	
-	$("#div2").hide();
-	
-	$("#createuser").click(function() {
+	$("#createuser").on("click", function() {
 		$("#div2").load("createUser.html");
 	});
 

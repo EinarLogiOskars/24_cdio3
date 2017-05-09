@@ -39,7 +39,7 @@ public class UserDAO implements IUserDAO{
 		try {
 			MySQLAccess.doUpdate("INSERT INTO users(userID, name, initials, password, cpr, roles) VALUES "
 					+ "(" + user.getUserId() + ", '" + user.getUserName() + "', '" + user.getIni().toUpperCase() + "', '" + new passwordGenerator().createPassword()
-					+ "', '" + user.getCpr() + "', '" + user.getRoles().toString() + "')");
+					+ "', '" + user.getCpr() + "', '" + user.getRoles() + "')");
 		} catch (DALException e) { e.printStackTrace(); }
 	}
 

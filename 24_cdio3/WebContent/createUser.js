@@ -1,19 +1,21 @@
 $(document).ready(function() {
-	$("#CUForm").submit(function(){
-
-		$.ajax({
-			url: "http://localhost:8080/24_cdio3/rest2/cdio3/userids",
-			method: "GET",
-			success: function(data) {
-				var ids = data;
-			},
-			error: function(error) {
-				console.log(error);
-			}
-			
-		});
+	
+	var numbers;
+	
+	$.ajax({
+		url: "http://localhost:8080/24_cdio3/rest2/cdio3/userids",
+		method: "GET",
+		success: function(data) {
+			numbers = data;
+		},
+		error: function(error) {
+			console.log(error);
+		}
 		
-		alert(ids);
+	});
+	
+	
+	$("#CUForm").submit(function() {
 		
 		if (validateForm() == true) {
 
@@ -88,12 +90,18 @@ $(document).ready(function() {
 
 //	Validation of creating user...
 	function validateForm() {
+		
+		// http://stackoverflow.com/questions/2684434/jquery-check-if-at-least-one-checkbox-is-checked  <---- for checking checkboxes!
 
 		if ($("#userId").val() < 11 || $("#userId").val() > 89) {
 			alert("Your user id must be between 11 and 89.");
 			return false;
 		}
-		else if ($("#userName").val().length() > 20) {
+		else if (validateID()) {
+			alert("User id already taken.");
+			return false;
+		}
+		else if ($("#userName").val().length > 20) {
 			alert("Your user name must be less than 20 letters.");
 			return false;
 		}
@@ -105,17 +113,23 @@ $(document).ready(function() {
 			alert("Your cpr is too long.");
 			return false;
 		}
-		else if (!$("#admin").checked() && !$("#operator").checked() && !$("#foreman").checked() && !$("#pharmacist").checked()) {
+		else if ($('#CUForm input:checked').length == 0) {
 			alert("You need at least 1 role.");
 			return false;
 		}
 		else {
 			return true;
 		}
-
-
 	}
 
+	function validateID() {
+		var nr = parseInt($('#userId').val());
+		for(i in numbers){
+			if (numbers[i] == nr){
+				return true;
+			}
+		}	
+	}
 
 });
 

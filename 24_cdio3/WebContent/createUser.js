@@ -24,5 +24,32 @@ $(document).ready(function() {
 		return false;
 	});
 
+	$("#chooseId").click(function() {
+		
+		$.ajax({
+			
+			url: "",
+			method: "GET",
+			success: function(id){
+				
+			},
+			error: function(error){
+				alert("Error message: " + error);
+			}
+		});
+		
+	});
+	
+	 $('input[type="text"]').keyup(function(){
+		  var value = $(this).val();
+		  if(value.length >= 20) {
+		    $(this).attr('class', 'w3-border w3-border-red w3-input');
+		  }
+		  else {
+		   $(this).attr('class', 'w3-input');
+		  }
+		 });
+
+	
 });
 

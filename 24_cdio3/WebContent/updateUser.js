@@ -1,15 +1,16 @@
 $(document).ready(function() {
 	
-	$("#DUButton").click(function() {
-		alert("Trying to post...");
-		
+	var user;
+	
+	$("#UUButton").click(function() {		
 		$.ajax({
 			url: "something",
 			method: "POST",
 			data: data,
 			contentType: "application/json",
 			success: function(data) {
-				alert(data);
+				user = data;
+				$("#UUForm").load("updateUserForm");
 			},
 			error: function(error) {
 				alert("Error: " + error);

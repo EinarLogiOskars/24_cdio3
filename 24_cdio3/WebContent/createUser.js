@@ -40,6 +40,9 @@ $(document).ready(function() {
 					console.log(resp)
 				}
 			});
+			//Simple javascript to reset...
+			document.getElementById('CUForm').reset();
+			
 			// Don't submit the form again
 			return false;
 		}
@@ -120,9 +123,7 @@ $(document).ready(function() {
 			return false;
 		}
 		else {
-			if (confirm("Are all the information correct?") == true) {
-				//Simple javascript to reset...
-				document.getElementById('CUForm').reset();		
+			if (confirm("Are all the information correct?") == true) {	
 				return true;
 			}
 			else {

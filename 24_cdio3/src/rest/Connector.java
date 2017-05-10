@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -60,15 +61,14 @@ public class Connector {
 	}
 	
 	
-	
-//	@GET
-//	@Path("/showusers")
-//	@Produces (MediaType.APPLICATION_JSON)
-//	public ArrayList<UserDTO> showUsers() {
-//		ArrayList<UserDTO> list = new ArrayList<UserDTO>();
-//		try {list = us.getUserList(); } 
-//		catch (DALException e) {e.printStackTrace(); }
-//		return list;
-//	}
+	@DELETE
+	@Path("/deleteuser")
+	public boolean deleteUser(int id){
+		try {
+			us.deleteUser(id);
+		} catch (DALException e) { e.printStackTrace(); }
+		return true;
+	}
+
 
 }

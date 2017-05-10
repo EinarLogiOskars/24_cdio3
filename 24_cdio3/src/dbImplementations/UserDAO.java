@@ -78,8 +78,7 @@ public class UserDAO implements IUserDAO{
 
 	@Override
 	public void deleteUser(int userId) throws DALException {
-		// TODO Auto-generated method stub
-		
+		MySQLAccess.doUpdate("DELETE FROM USERS WHERE userID = " + userId);		
 	}
 	
 	@Override

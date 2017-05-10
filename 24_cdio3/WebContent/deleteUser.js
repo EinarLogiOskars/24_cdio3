@@ -22,18 +22,19 @@ $(document).ready(function() {
 
 		if (validateID() == true) {
 
-			var data = $('#DUForm');
-
+			var userId = parseInt($('#delUserID').val());
+			console.log(userId);
+			debugger;
 			$.ajax({
-				url: "http://localhost:8080/24_cdio3/rest2/cdio3/deleteuser",
+				url: "http://localhost:8080/24_cdio3/rest2/cdio3/deleteuser/" + userId,
 				method: "DELETE",
-				data: data,
-				success: function(data) {
+				success: function(resp) {
 					console.log("This is the delete user success method.");
+					console.log(resp);
 				},
-				error: function(error) {
+				error: function(resp) {
 					console.log("This is the delete user error method.");
-					console.log(error);
+					console.log(resp);
 				}
 			});
 			//Simple javascript to reset...

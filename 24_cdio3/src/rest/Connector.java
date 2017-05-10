@@ -32,9 +32,7 @@ public class Connector {
 		
 		try {
 			us.createUser(user);
-		} catch (DALException e) {
-			System.out.println(e.getMessage());
-		}
+		} catch (DALException e) { System.out.println(e.getMessage()); }
 		return true;
 	}
 
@@ -73,13 +71,28 @@ public class Connector {
 		return true;
 	}
 	
+	
+	@GET
+	@Path("/users/{userID}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public UserDTO getUser(@PathParam("userID") int userID){
+		UserDTO user = new UserDTO();
+		try {
+			user = us.getUser(userID);
+		} catch (DALException e) { e.printStackTrace(); }
+		
+		return user;
+	}
+	
+	
 	@PUT
 	@Path("/updateuser")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public boolean updateUser(UserDTO user){
-		
+		try {
+			us.updateUser(user);
+		} catch (DALException e) { e.printStackTrace(); }
 		return true;
 	}
-
 
 }

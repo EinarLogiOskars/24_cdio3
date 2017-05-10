@@ -15,7 +15,9 @@ $(document).ready(function() {
 	});
 	
 	
-	$("#CUForm").submit(function() {
+	$("#CUForm").submit(function(event) {
+		
+		event.preventDefault();
 		
 		if (validateForm() == true) {
 

@@ -17,6 +17,7 @@ $(document).ready(function() {
 	
 	$("#CUForm").submit(function(event) {
 		
+		//Prevent reset on form when an input is not correct...
 		event.preventDefault();
 		
 		if (validateForm() == true) {
@@ -89,7 +90,7 @@ $(document).ready(function() {
 	});
 
 
-//	Validation of creating user...
+	//Validation of creating user...
 	function validateForm() {
 		
 		// http://stackoverflow.com/questions/2684434/jquery-check-if-at-least-one-checkbox-is-checked  <---- for checking checkboxes!
@@ -119,10 +120,18 @@ $(document).ready(function() {
 			return false;
 		}
 		else {
-			return true;
+			if (confirm("Are all the information correct?") == true) {
+				//Simple javascript to reset...
+				document.getElementById('CUForm').reset();		
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 	}
 
+	//Validation of ID - to make sure a user doesnt already exist in the database with the same ID.
 	function validateID() {
 		var nr = parseInt($('#userId').val());
 		for(i in numbers){

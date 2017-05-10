@@ -2,21 +2,29 @@
 <html lang="en-US">
 <head>
 <link rel="stylesheet" type="text/css" href="updateUser.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="index.js"></script>
 <meta charset="UTF-8">
 </head>
 
 <body>
 
-	<form class="flexcontainer">
-		<label>ID number <input type="text"
-			onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-		</label>
-		<li><input type="button" value="Show user" onclick="ShowUser();">
-		</li>
-	</form>
-	<label> Under construction</label>
-	
+	<div id="outerDiv" class="w3-margin">
+
+		<div class="w3-container w3-margin-bottom">
+			<label class="">
+				Users currently in the database:
+				</label>
+		</div>
+
+		<div id="showUserList" class="w3-container w3-border w3-cell">
+
+			<tr>
+				<th>I am a list</th>
+			</tr>
+
+		</div>
+	</div>
 
 </body>
 </html>

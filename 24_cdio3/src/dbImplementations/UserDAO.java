@@ -33,6 +33,7 @@ public class UserDAO implements IUserDAO{
 	@Override
 	public List<UserDTO> getUserList() throws DALException {
 		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM users");
+		List<UserDTO> userList1 = new ArrayList<UserDTO>();
 		
 		try {
 			while (rs.next()){
@@ -53,11 +54,11 @@ public class UserDAO implements IUserDAO{
 				if (roles.contains("Pharmacist"))
 					rolesList.add("Pharmacist");
 				user.setRoles(rolesList);
-				userList.add(user);
+				userList1.add(user);
 			}
 		} catch (SQLException e) { e.printStackTrace(); }
 		
-		return userList;
+		return userList1;
 	}
 	
 	@Override

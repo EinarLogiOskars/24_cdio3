@@ -37,7 +37,6 @@ $(document).ready(function() {
 					console.log(resp)
 				}
 			});
-
 			// Don't submit the form again
 			return false;
 		}

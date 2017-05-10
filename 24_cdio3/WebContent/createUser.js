@@ -24,8 +24,6 @@ $(document).ready(function() {
 
 			var data = $('#CUForm').serializeObject();
 
-			console.log(data);
-
 			$.ajax({
 				url: "http://localhost:8080/24_cdio3/rest2/cdio3/createuser",
 				data: JSON.stringify(data),
@@ -123,7 +121,7 @@ $(document).ready(function() {
 			return false;
 		}
 		else {
-			if (confirm("Are all the information correct?") == true) {	
+			if (confirm("Is all the information correct?") == true) {	
 				return true;
 			}
 			else {

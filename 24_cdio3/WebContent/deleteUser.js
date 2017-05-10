@@ -64,8 +64,9 @@ $(document).ready(function() {
 		var nr = parseInt($('#delUserID').val());
 		for(i in numbers){
 			if (numbers[i] == nr){
-				alert("Are you sure you want to delete user: " + nr);
-				return true;
+				if (confirm("Are you sure you want to delete user: " + nr) == true){
+					return true;
+				}
 			}
 		}	
 		alert("No user has that user ID...");

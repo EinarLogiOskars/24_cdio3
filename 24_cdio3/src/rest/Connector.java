@@ -1,6 +1,7 @@
 package rest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -46,7 +47,20 @@ public class Connector {
 		return userIds;
 	}
 	
-
+	
+	@GET
+	@Path("/showusers")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<UserDTO> getUserList(){
+		List<UserDTO> userList = new ArrayList<UserDTO>();
+		try {
+			userList = us.getUserList();
+		} catch (DALException e) { e.printStackTrace(); }
+		return userList;
+	}
+	
+	
+	
 //	@GET
 //	@Path("/showusers")
 //	@Produces (MediaType.APPLICATION_JSON)

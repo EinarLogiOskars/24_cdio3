@@ -3,6 +3,7 @@ package dbImplementations;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import dbconnection.MySQLAccess;
 import entity.UserDTO;
@@ -30,7 +31,32 @@ public class UserDAO implements IUserDAO{
 	}
 	
 	@Override
-	public ArrayList<UserDTO> getUserList() throws DALException {
+	public List<UserDTO> getUserList() throws DALException {
+		ResultSet rs = MySQLAccess.doQuery("SELECT * FROM users");
+		
+		try {
+			while (rs.next()){
+				UserDTO user = new UserDTO();
+				user.setUserId(rs.getInt("userID"));
+				user.setUserName(rs.getString("name"));
+				user.setIni(rs.getString("initials"));
+				user.setCpr(rs.getString("cpr"));
+				user.setPassword(rs.getString("password"));
+				String roles = rs.getString("roles");
+				List<String> rolesList = new ArrayList<String>();
+				if (roles.contains("Admin"))
+					rolesList.add("Admin");
+				if (roles.contains("Operator"))
+					rolesList.add("Operator");
+				if (roles.contains("Foreman"))
+					rolesList.add("Foreman");
+				if (roles.contains("Pharmacist"))
+					rolesList.add("Pharmacist");
+				user.setRoles(rolesList);
+				userList.add(user);
+			}
+		} catch (SQLException e) { e.printStackTrace(); }
+		
 		return userList;
 	}
 	
